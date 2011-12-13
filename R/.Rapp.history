@@ -1,0 +1,72 @@
+source(summary.spse.R)
+source("summary.spse.R")
+source("utilities_se.R")
+source("print.summary.spse.R")
+source("spsegm.R")
+source("spseml.R")
+data(Produc, package = "Ecdat")#
+data(usaww)
+load("/Users/gpiras/spse/pkg/data/usaww.rda")
+Produc <- Produc[Produc$year<1973, ]#
+eq1 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+eq2 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+eq3 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp
+formula<-list(tp1 = eq1, tp2 = eq2, tp3=eq3)#
+w<-mat2listw(usaww)#
+se<-spsegm(formula, data=Produc, w=w, panel= TRUE,lags=list(c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE)), errors=list(FALSE,TRUE,FALSE),endogenous=list(c(FALSE,TRUE,FALSE),c(TRUE,FALSE,FALSE),c(TRUE,FALSE,FALSE)))#
+summary(se)
+library(spdep)
+formula<-list(tp1 = eq1, tp2 = eq2, tp3=eq3)#
+w<-mat2listw(usaww)#
+se<-spsegm(formula, data=Produc, w=w, panel= TRUE,lags=list(c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE)), errors=list(FALSE,TRUE,FALSE),endogenous=list(c(FALSE,TRUE,FALSE),c(TRUE,FALSE,FALSE),c(TRUE,FALSE,FALSE)))#
+summary(se)
+source("utilities_se.R")
+source("utilities_se.R")
+formula<-list(tp1 = eq1, tp2 = eq2, tp3=eq3)#
+w<-mat2listw(usaww)#
+se<-spsegm(formula, data=Produc, w=w, panel= TRUE,lags=list(c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE)), errors=list(FALSE,TRUE,FALSE),endogenous=list(c(FALSE,TRUE,FALSE),c(TRUE,FALSE,FALSE),c(TRUE,FALSE,FALSE)))#
+summary(se)
+se
+sedata(Produc, package = "Ecdat")#
+data(usaww)#
+Produc <- Produc[Produc$year<1973, ]#
+eq1 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+eq2 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+eq3 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+formula<-list(tp1 = eq1, tp2 = eq2, tp3=eq3)#
+w<-mat2listw(usaww)#
+se<-spsegm(formula, data=Produc, w=w, panel= TRUE,lags=list(c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE)), errors=list(FALSE,TRUE,FALSE),endogenous=list(c(FALSE,TRUE,FALSE),c(TRUE,FALSE,FALSE),c(TRUE,FALSE,FALSE)))
+summary(se)
+slacc(se)
+class(se)
+source("utilities_se.R")
+sedata(Produc, package = "Ecdat")#
+data(usaww)#
+Produc <- Produc[Produc$year<1973, ]#
+eq1 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+eq2 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+eq3 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp #
+formula<-list(tp1 = eq1, tp2 = eq2, tp3=eq3)#
+w<-mat2listw(usaww)#
+se<-spsegm(formula, data=Produc, w=w, panel= TRUE,lags=list(c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE)), errors=list(FALSE,TRUE,FALSE),endogenous=list(c(FALSE,TRUE,FALSE),c(TRUE,FALSE,FALSE),c(TRUE,FALSE,FALSE)))
+summary(se)
+class(se)
+source("spseml.R")
+source("spsegm.R")
+se<-spsegm(formula, data=Produc, w=w, panel= TRUE,lags=list(c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE),c(TRUE,TRUE,TRUE)), errors=list(FALSE,TRUE,FALSE),endogenous=list(c(FALSE,TRUE,FALSE),c(TRUE,FALSE,FALSE),c(TRUE,FALSE,FALSE)))
+summary(se)
+source(summary.spse.R)
+source("summary.spse.R")
+summary.spse
+class(se)
+summary.spse(se)
+print.summary.spse(se)
+source("utilities_se.R")
+summary.spse(se)
+summary(se)
+print(se)
+print.summary(se)
+print.summary.spse(se)
+summary(se)
+source("summary.spse.R")
+summary(se)

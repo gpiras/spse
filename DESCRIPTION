@@ -1,0 +1,10 @@
+Package: spse
+Title: Spatial Simultaneous Equations and Spatial Sur Model
+Version: 0.0-01
+Date: 2011-04-21
+Author: Gianfranco Piras <gpiras@mac.com>
+Maintainer: Gianfranco Piras <gpiras@mac.com>
+Description: ML and GM estimation of spatial simultaneous equations model
+Depends: R (>= 2.12), MASS, nlme, spdep, plm, Matrix, spam, splm, plm, Ecdat
+License: GPL-2
+LazyLoad: yes
