@@ -15,7 +15,7 @@ spseml<-function(formula, data=list(),panel=TRUE,index=NULL,w,method="eigen", qu
             warning("unknown names in control: ", paste(noNms, collapse = ", "))
 
     if (is.null(quiet)) 
-	quiet <- !get("verbose", env = spdep:::.spdepOptions)
+	quiet <- !get("verbose", envir = spdep:::.spdepOptions)
     stopifnot(is.logical(quiet))
 
 	if (is.null(zero.policy))
