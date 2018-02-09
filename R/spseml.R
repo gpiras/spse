@@ -23,6 +23,10 @@ spseml<-function(formula, data=list(),panel=TRUE,index=NULL,w,method="eigen", qu
         stopifnot(is.logical(zero.policy))
 
 if (!inherits(formula, "list")) stop("formula should be a list in simultaneous equation models")
+	can.sim <- FALSE
+	if (listw$style %in% c("W", "S")) 
+		can.sim <- spdep::can.be.simmed(listw)
+    cl <- match.call()
 
 if(panel){
 	
@@ -52,7 +56,7 @@ listw<-w
         stopifnot(is.logical(con$fdHess))
 	can.sim <- FALSE
 	if (listw$style %in% c("W", "S")) 
-		can.sim <- spdep:::can.be.simmed(listw)
+		can.sim <- spdep::can.be.simmed(listw)
 
     
     
