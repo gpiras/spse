@@ -11,12 +11,12 @@ importFrom("stats", "coef", "coefficients", "fitted.values", "lm",
              "model.extract", "model.frame", "na.fail", "nlminb",
              "pnorm", "printCoefmat", "residuals", "terms", "vcov")
 
-export(spsegm, spseml, print.spse, summary.spse, spsepgm, print.spsugm, summary.spsugm)
-
-
+export(spsegm, spseml)
 
 S3method(print, spse)
+S3method(summary, spse)
 S3method(print, summary.spse)
 S3method(print, spsugm)
+S3method(summary, spsugm)
 S3method(print, summary.spsugm)
 

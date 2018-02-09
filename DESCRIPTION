@@ -1,7 +1,7 @@
 Package: spse
 Title: Spatial Simultaneous Equations and Spatial SUR Model
-Version: 0.0-02
-Date: 2018-02-04
+Version: 0.0-2
+Date: 2018-02-09
 Author: Gianfranco Piras <gpiras@mac.com>
 Maintainer: Gianfranco Piras <gpiras@mac.com>
 Description: Functions in this package permit the fitting using ML and GM estimation of spatial simultaneous equations models and spatial seemingly-unrelated regression models.

@@ -18,7 +18,8 @@ spatial SUR model.
 
 \usage{
 spseml(formula, data=list(),panel=TRUE,index=NULL,w,method="eigen",
-quiet=NULL, model = c("lag","error"), zero.policy=NULL, interval=NULL, tol.solve=1.0e-10, trs=NULL, control=list(), initval=NULL)}
+ quiet=NULL, model = c("lag","error"), zero.policy=NULL, interval=NULL,
+ tol.solve=1.0e-10, trs=NULL, control=list(), initval=NULL)}
 
 
 \arguments{
@@ -94,9 +95,11 @@ eq2 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp
 eq3 <- log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp 
 formula<-list(tp1 = eq1, tp2 = eq2, tp3=eq3)
 listw<-mat2listw(usaww)
-sur.error<-spseml(formula, data = Produc, w = listw, model = "error", method = "eigen", quiet = TRUE)
+sur.error<-spseml(formula, data = Produc, w = listw, model = "error",
+ method = "eigen", quiet = TRUE)
 summary(sur.error)
-sur.lag<-spseml(formula, data = Produc, w = listw, model = "lag", method = "eigen", quiet = FALSE)
+sur.lag<-spseml(formula, data = Produc, w = listw, model = "lag",
+ method = "eigen", quiet = FALSE)
 summary(sur.lag)
 }
 
