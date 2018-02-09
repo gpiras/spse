@@ -15,7 +15,7 @@ spseml<-function(formula, data=list(),panel=TRUE,index=NULL,w,method="eigen", qu
             warning("unknown names in control: ", paste(noNms, collapse = ", "))
 
     if (is.null(quiet)) 
-	quiet <- !get("verbose", envir = spdep:::.spdepOptions)
+	quiet <- !spdep::get.VerboseOption()
     stopifnot(is.logical(quiet))
 
 	if (is.null(zero.policy))
@@ -31,15 +31,15 @@ if (!inherits(formula, "list")) stop("formula should be a list in simultaneous e
 if(panel){
 	
 	if (!is.null(index)) {
-        require(plm)
-        data <- plm.data(data, index)
+    #    require(plm)
+        data <- plm::plm.data(data, index)
     }
     
     cl <- match.call()
-    require(nlme)
+#    require(nlme)
     if (is.matrix(w)) {
         if ("listw" %in% class(w)) {
-            require(spdep)
+            #require(spdep)
             w <- listw2mat(w)
         }
         else {
@@ -222,18 +222,18 @@ timings[["set_up"]] <- proc.time() - .ptime_start
                     W <- as(as_dgRMatrix_listw(listw), "CsparseMatrix")
         	    I <- as_dsCMatrix_I(n)
 		},
-	        spam = {
-                    if (!require(spam)) stop("spam not available")
-		    if (listw$style %in% c("W", "S") && !can.sim)
-		    stop("spam method requires symmetric weights")
-		    if (listw$style %in% c("B", "C", "U") && 
-			!(is.symmetric.glist(listw$neighbours, listw$weights)))
-		    stop("spam method requires symmetric weights")
-		    if (!quiet) cat("sparse matrix Cholesky decomposition\n")
-                    spam_setup(env)
-                    W <- as.spam.listw(get("listw", envir=env))
-                    if (is.null(interval)) interval <- c(-1,0.999)
-		},
+#	        spam = {
+#                    if (!require(spam)) stop("spam not available")
+#		    if (listw$style %in% c("W", "S") && !can.sim)
+#		    stop("spam method requires symmetric weights")
+#		    if (listw$style %in% c("B", "C", "U") && 
+#			!(is.symmetric.glist(listw$neighbours, listw$weights)))
+#		    stop("spam method requires symmetric weights")
+#		    if (!quiet) cat("sparse matrix Cholesky decomposition\n")
+#                    spam_setup(env)
+#                    W <- as.spam.listw(get("listw", envir=env))
+#                    if (is.null(interval)) interval <- c(-1,0.999)
+#		},
                 Chebyshev = {
 		    if (listw$style %in% c("W", "S") && !can.sim)
 		        stop("Chebyshev method requires symmetric weights")
@@ -281,7 +281,7 @@ optres<-spatpar
 S2<-crossprod(egls)/n
 xVxinv<-get("xVxinv", envir=env)
 VC<- xVxinv
-covPRL <- solve(-fdHess(lambdas, function(x) -llsurerror(x,env=env) )$Hessian )
+covPRL <- solve(-nlme::fdHess(lambdas, function(x) -llsurerror(x,env=env) )$Hessian )
 }
 else{
 spatpar <- nlminb(lambda, llsurlag, env=env)
@@ -296,7 +296,7 @@ S2<-crossprod(egls)/n
 vcgls<-get("vcgls", envir=env)
 
 #print(-fdHess(lambdas, function(x) -llsurlag(x,env=env) )$Hessian )
-covPRL <- solve(-fdHess(lambdas, function(x) -llsurlag(x,env=env) )$Hessian )
+covPRL <- solve(-nlme::fdHess(lambdas, function(x) -llsurlag(x,env=env) )$Hessian )
 
 ####
 ytlist<-ylist

@@ -1,8 +1,15 @@
-importFrom(stats, model.matrix, model.response, aggregate, effects)
-import(nlme)
+importFrom("stats", "model.matrix", "model.response", "aggregate", "effects")
+importFrom(nlme, "fdHess")
 import(spdep)
+import(Ecdat)
 import(Matrix)
-importFrom(MASS,ginv)
+importFrom("MASS", "ginv")
+importFrom("plm", "plm.data")
+importFrom("splm", "spgm")
+importFrom("methods", "as")
+importFrom("stats", "coef", "coefficients", "fitted.values", "lm",
+             "model.extract", "model.frame", "na.fail", "nlminb",
+             "pnorm", "printCoefmat", "residuals", "terms", "vcov")
 
 export(spsegm, spseml, print.spse, summary.spse, spsepgm, print.spsugm, summary.spsugm)
 

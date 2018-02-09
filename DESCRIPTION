@@ -1,10 +1,11 @@
 Package: spse
-Title: Spatial Simultaneous Equations and Spatial Sur Model
+Title: Spatial Simultaneous Equations and Spatial SUR Model
 Version: 0.0-02
 Date: 2018-02-04
 Author: Gianfranco Piras <gpiras@mac.com>
 Maintainer: Gianfranco Piras <gpiras@mac.com>
-Description: ML and GM estimation of spatial simultaneous equations model
-Depends: R (>= 2.12), MASS, nlme, spdep, plm, Matrix, spam, splm, plm, Ecdat
+Description: Functions in this package permit the fitting using ML and GM estimation of spatial simultaneous equations models and spatial seemingly-unrelated regression models.
+Depends: R (>= 2.12), spdep, Matrix, Ecdat
+Imports: methods, MASS, nlme, plm, splm
 License: GPL-2
 LazyLoad: yes

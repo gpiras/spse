@@ -8,8 +8,8 @@ spsepgm<-function(formula, data = list(), index = NULL, listw, model = c("within
 iindex<-index
 
     if (!is.null(index)) {
-        require(plm)
-        data <- plm.data(data, index)
+        #require(plm)
+        data <- plm::plm.data(data, index)
     }
     
     index <- data[, 1]
@@ -78,7 +78,7 @@ for ( i in 1:eq)    		w.list[[i]]<-listw
 
         for (i in 1:eq) {
 
-est.res[[i]]<-spgm(formula=formula[[i]], data=data, index = index, listw = w.list[[i]], 
+est.res[[i]]<-splm::spgm(formula=formula[[i]], data=data, index = index, listw = w.list[[i]], 
 model = model, lag = lag[[i]], spatial.error = spatial.error[[i]],  moments = moments, endog = endog, instruments = instruments, 
 verbose = verbose, method = method, control = list())
 #print(summary(est.res[[i]]))

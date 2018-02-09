@@ -14,7 +14,7 @@ if(!inherits(formula, "list")) stop("formula should be a list in simultaneous eq
 if(!inherits(w, c("listw","matrix"))) stop("w has to be an object of class 'listw' of 'matrix'")
 
     if(is.matrix(w)) {
-            require(spdep)
+            #require(spdep)
             w <- mat2listw(w)
         }
 
@@ -24,8 +24,8 @@ cl <- match.call()
 if(panel){
 	
 	if (!is.null(index)) {
-        require(plm)
-        data <- plm.data(data, index)
+        # require(plm)
+        data <- plm::plm.data(data, index)
     }
     
     index <- data[, 1]
